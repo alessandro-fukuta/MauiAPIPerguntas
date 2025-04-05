@@ -11,7 +11,7 @@
 #### ..... Classes Staticas em C#
 #### ..... Recebendo o resultado do consumo da API (response)
 #### ..... Chamada Assincrona
-
+#### ..... Gerenciador de Pacotes Nuget
 
 ### Prof. Alessandro Fukuta
 ### Fatec Franca
