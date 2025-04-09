@@ -11,7 +11,7 @@ namespace MauiAPIPerguntas;
 public partial class Principal : ContentPage
 {
     private JsonSerializerOptions _serializerOptions;
-    private string MeuEndPoint = "/auth";
+    private string MeuEndPoint = "";
     private readonly HttpClient _client = new HttpClient();
     string tkn = "";
     string jsonContent;
@@ -19,6 +19,7 @@ public partial class Principal : ContentPage
     public Principal()
 	{
 		InitializeComponent();
+        // mudar o IP para o endereço IP PUBLICO DA VM AZURE
         SessaoLogin.UrlApi = "http://192.168.1.240:4000";
     }
 
