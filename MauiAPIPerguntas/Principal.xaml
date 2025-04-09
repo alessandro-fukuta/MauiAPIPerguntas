@@ -3,17 +3,23 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiAPIPerguntas.Principal"
              Title="Principal">
+
     <VerticalStackLayout Margin="10">
+        <!-- COMENTARIOS NO XAML É IGUAL HTML -->
+        <!-- TITULO -->
         <Label Text="API"
                FontSize="Title"
                HorizontalTextAlignment="Center"
                />
+        <!-- LABEL DA PERGUNTA -->
         <Label 
             Text="PERGUNTAS E RESPOSTAS"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
-
+        
+        <!-- LAYOUT EM GRID -->
         <Grid>
+            
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
@@ -22,12 +28,16 @@
                 <ColumnDefinition Width="320" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
+
+            <!-- ENTRY: CAMPO DE PERGUNTA -->
+
             <Entry x:Name="txtPergunta"
                    Grid.Row="0"
                    Grid.Column="0"
                    Placeholder="Faça a Pergunta ?"
                    />
 
+            <!-- BOTÃO DE ENVIAR -->
             <Button x:Name="btnEnviar"
                     Grid.Row="0"
                     Grid.Column="1"
@@ -35,16 +45,10 @@
                     FontSize="Title"
                     Clicked="btnEnviar_Clicked"
                     />
-
-           
-
         </Grid>
 
         <Label Text="" x:Name="lblResponse"
                HorizontalTextAlignment="Center"
         />
-
-
-
     </VerticalStackLayout>
 </ContentPage>
