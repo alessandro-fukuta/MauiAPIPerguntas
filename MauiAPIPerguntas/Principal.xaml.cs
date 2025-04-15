@@ -54,4 +54,9 @@ public partial class Principal : ContentPage
         await EnviarPergunta(newPergunta);
 
     }
+
+    private void btnBuscar_Clicked(object sender, EventArgs e)
+    {
+
+    }
 }
