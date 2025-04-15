@@ -28,9 +28,7 @@
                 <ColumnDefinition Width="320" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-
-            <!-- ENTRY: CAMPO DE PERGUNTA -->
-
+            
             <Entry x:Name="txtPergunta"
                    Grid.Row="0"
                    Grid.Column="0"
@@ -50,22 +48,5 @@
         <Label Text="" x:Name="lblResponse"
                HorizontalTextAlignment="Center"
         />
-
-        <Button x:Name="btnBuscar" Margin="20" Text="Buscar" Clicked="btnBuscar_Clicked" />
-
-        <ListView x:Name="lstPerguntas"
-                  Grid.Row="1"
-                  Grid.ColumnSpan="2"
-                  >
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <StackLayout>
-                        <Label Text="{Binding pergunta}" FontSize="20" FontAttributes="Bold" />
-                    </StackLayout>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-
-        </ListView>
-
     </VerticalStackLayout>
 </ContentPage>
