@@ -48,5 +48,25 @@
         <Label Text="" x:Name="lblResponse"
                HorizontalTextAlignment="Center"
         />
+        
+        <!--BOTAO DE BUSCAR AS PERGUNTAS FEITAS-->
+        <Button x:Name="btnBuscar"
+                Text="Buscar Perguntas"
+                Clicked="btnBuscar_Clicked"
+                />
+
+        <!-- LISTA DE PERGUNTAS -->
+
+        <ListView x:Name="lstPerguntas"
+                  SelectionMode="Single"
+                  >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Pergunta}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+        </ListView>
+
     </VerticalStackLayout>
 </ContentPage>
