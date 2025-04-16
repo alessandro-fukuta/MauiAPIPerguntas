@@ -57,14 +57,20 @@
                 />
 
         <!-- LISTA DE PERGUNTAS -->
-
-        <ListView x:Name="lstPerguntas"
-                  SelectionMode="Single"
-                  Margin="10,20,10,0"
-                  BackgroundColor="PapayaWhip"
-                  RowHeight="80"
-                  HeightRequest="500"
+        <!-- SelecionMode = "Single" uma seleção por vez -->
+        <!-- Margin "Margem" -->
+        <!-- BackGroundColor = "cor de fundo" -->
+        <!-- RowHeigh = altura das linhas na listview -->
+        <!-- HeightRequest (altura da listview no layout principal da tela do dispositivo -->
+        
+        <ListView x:Name="lstPerguntas" 
+                  SelectionMode="Single" 
+                  Margin="10,20,10,0" 
+                  BackgroundColor="PapayaWhip" 
+                  RowHeight="80" 
+                  HeightRequest="500" 
                   >
+            <!-- ItemSource = "BindingContext" Linka os dados do itemsource e separa no binding -->
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
