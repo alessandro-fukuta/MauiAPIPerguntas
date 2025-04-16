@@ -54,6 +54,7 @@ public partial class Principal : ContentPage
 
     }
 
+    // post
     private async void btnEnviar_Clicked(object sender, EventArgs e)
     {
         var newPergunta = new Pergunta
@@ -65,9 +66,10 @@ public partial class Principal : ContentPage
 
     }
 
+    //get
+
     private async void btnBuscar_Clicked(object sender, EventArgs e)
     {
-        // get
 
         _perguntas.Clear();
 
@@ -75,27 +77,40 @@ public partial class Principal : ContentPage
 
         try
         {
+            // criando o cliente http
             using var httpClient = new HttpClient();
+            // configurando o cabeçalho e comunicando com a api
             var response = await httpClient.GetAsync(MeuEndPoint);
+            // recebendo o retorno da api e seu codigo de status
             if (response.IsSuccessStatusCode)
             {
+                // se o status foi sucesso
+                // lendo o conteudo da resposta
                 var jsonString = await response.Content.ReadAsStringAsync();
-                var perguntasResponse = JsonSerializer.Deserialize<RootObject>(jsonString, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+                // deserializando o conteudo
+                var perguntasResponse = JsonSerializer.Deserialize<RootObject>(jsonString, new JsonSerializerOptions
+                    { PropertyNameCaseInsensitive = true }
+                );
+                // lendo o conteudo deserializado em perguntasResponse e adicionando na lista
                 if (perguntasResponse != null)
                 {
                     foreach (var perg in perguntasResponse.Perguntas)
                     {
-                        _perguntas.Add(perg); // Fix: Add the entire Pergunta object instead of just the string property
+                        // aqui adicionamos o objeto Pergunta inteiro na lista
+                        _perguntas.Add(perg); 
                     }
                 }
             }
 
+            // finalmente listview recebe a lista de perguntas
             lstPerguntas.ItemsSource = _perguntas;
 
         }
-        catch (Exception ex)
+        catch (Exception ex) // caso ocorra algum erro
         {
-            await DisplayAlert("Aviso", "Erro de Comunicação com a API", "OK");
+            // aqui tratamos o erro
+            await DisplayAlert("Erro", "Erro ao buscar perguntas: " + ex.Message, "OK");
         }
+
     }
 }
