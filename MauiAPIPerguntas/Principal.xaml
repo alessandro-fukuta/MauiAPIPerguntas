@@ -53,16 +53,26 @@
         <Button x:Name="btnBuscar"
                 Text="Buscar Perguntas"
                 Clicked="btnBuscar_Clicked"
+                Margin="80,0,80,0"
                 />
 
         <!-- LISTA DE PERGUNTAS -->
 
         <ListView x:Name="lstPerguntas"
                   SelectionMode="Single"
+                  Margin="10,20,10,0"
+                  BackgroundColor="PapayaWhip"
+                  RowHeight="80"
+                  HeightRequest="500"
                   >
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <TextCell Text="{Binding Pergunta}" />
+                    <ViewCell>
+                        <StackLayout>
+                            <Label Text="{Binding id}" />
+                            <Label Text="{Binding pergunta}" />
+                        </StackLayout>
+                    </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
 
